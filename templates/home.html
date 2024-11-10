@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RTO</title>
+    <style>
+        /* Background Video */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Centering the buttons */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;  /* Gap between buttons */
+        }
+
+        .button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            background-color: rgba(235, 230, 230, 0.89);
+            color: #363434;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+             background-color: rgba(235, 230, 230, 0.89);
+            transform: scale(1.1);
+        }
+
+        .button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video class="bg-video" autoplay loop muted>
+        <source src="{% static 'videos/bg.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Button Container -->
+    <div class="container">
+        <div class="buttons">
+            <button class="button" onclick="window.location.href='{% url 'pjm' %}'">PJM</button>
+            <button class="button" onclick="window.location.href='{% url 'nyiso' %}'">NYISO</button>
+            <button class="button" onclick="window.location.href='{% url 'isone' %}'">ISONE</button>
+        </div>
+    </div>
+
+</body>
+</html>
